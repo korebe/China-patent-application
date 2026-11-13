@@ -1,0 +1,2 @@
+reference_id,database,query,publication_or_citation,title,applicant_or_author,priority_date,publication_date,verified_url,source_location,disclosure_summary,feature_match,difference,relevance,verification_status
+D1,CNIPA,exact query,publication number,title,applicant,YYYY-MM-DD,YYYY-MM-DD,https://...,claim/paragraph/figure,summary in own words,feature IDs,feature IDs,closest/background,verified/pending
