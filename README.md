@@ -2,6 +2,15 @@
 
 这个仓库提供一套用于中国发明、实用新型和外观设计专利的 Codex 工作流，覆盖从技术材料整理到申请后案件记录。
 
+## 相关 Skill 调研
+
+本分支新增了专利相关 Codex Skill 的目录和用法分析，包含项目对照、兼容性、安装提示、适用阶段及组合建议：
+
+- [调研入口与快速选择](research/README.md)
+- [项目目录：能力、安装和限制](research/skills-catalog.md)
+- [组合与全流程用法](research/workflow-and-usage.md)
+- [来源、筛选和复核方法](research/assessment-method.md)
+
 ## 安装
 
 将整个仓库放入 Codex 的个人技能目录，或当前项目的 .agents/skills/ 目录。
