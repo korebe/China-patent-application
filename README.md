@@ -1,41 +1,49 @@
-# China Patent Application Skill for Codex
+# 中国专利申请：Codex Skill
 
-整合中国发明、实用新型和外观设计申请的 Codex 工作流。技能以证据和官方来源为准，覆盖申请准备、文件起草、官方提交准备、审查意见协助和授权后案卷维护。
+这个仓库提供一套用于中国发明、实用新型和外观设计专利的 Codex 工作流，覆盖从技术材料整理到申请后案件记录。
 
-## 安装到 Codex
+## 安装
 
-把整个仓库克隆到 Codex 可发现的个人 skill 目录，或放入当前项目的 .agents/skills/ 下。Windows PowerShell 示例：
+将整个仓库放入 Codex 的个人技能目录，或当前项目的 .agents/skills/ 目录。
+
+Windows PowerShell：
 
 ~~~powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
 git clone https://github.com/korebe/China-patent-application.git "$env:USERPROFILE\.agents\skills\china-patent-application"
 ~~~
 
-也可以在项目内使用：
+项目内安装：
 
 ~~~powershell
 New-Item -ItemType Directory -Force -Path ".agents\skills"
 git clone https://github.com/korebe/China-patent-application.git ".agents\skills\china-patent-application"
 ~~~
 
-开始新的 Codex 会话后，可以直接说“使用 china-patent-application，先盘点这批研发材料并找出需要我确认的事实”。Codex 的 skill 以 SKILL.md 为入口，可按需读取参考文件和模板。
+私人仓库需要 GitHub 登录权限。安装后开启新的 Codex 会话。
 
-## 工作范围
+## 使用
 
-- 技术材料盘点、保密边界和证据台账
-- 发明点梳理、查新、现有技术对比及申请类型选择
-- 交底书、权利要求、说明书、摘要、附图和提交清单
-- 权利要求支持性、附图标记、术语及材料一致性检查
-- 审查意见拆解、对比文件映射和答复草稿
-- 案卷、官方通知、程序期限、缴费和授权后年费的记录与复核
+可以直接说：
 
-正式递交、缴费、签署和其他法律手续应由申请人或受托专业人员在国家知识产权局官方系统办理。本技能不自动提交申请或付款，也不替代专利代理师或律师的判断。
+~~~text
+使用 china-patent-application，先阅读这批研发材料，列出候选专利点和需要我确认的问题。不要开始写申请文件。
+~~~
 
-## 文件结构
+也可以明确指定阶段，例如“查新这项技术”“把已确认的交底书整理成申请文件”或“分析这份审查意见通知书”。
 
-- SKILL.md：阶段路由和通用决策门
-- references/：阶段细则及官方来源入口
-- templates/： intake、证据、检索、审查意见和案卷模板
-- SOURCES.md：参考项目和本技能的整合方式
+## 工作阶段
 
-本项目不会自动把你的案件材料写入 Git。请将案件工作区和该 skill 仓库分开。
+1. 收集技术材料并检查保密要求。
+2. 找出候选专利点，确认技术事实和公开时间。
+3. 检索现有技术，逐项比较相同点和区别。
+4. 起草交底书、权利要求、说明书、摘要和附图。
+5. 检查权利要求是否有说明书依据，核对图号、术语和申请信息。
+6. 准备官方提交清单；申请人或代理师确认后自行递交。
+7. 记录通知书、答复、授权登记、费用和年费事项。
+
+## 重要边界
+
+技能提供工作底稿和案件管理辅助。它不会登录国知局、正式递交申请、签署文件或支付费用。申请人或专利代理师应核对最终文本、法律判断、程序期限和官方手续。
+
+参考项目与本技能如何整合，见 SOURCES.md。现行法律、审查指南和系统入口见 references/06-authoritative-sources.md。
