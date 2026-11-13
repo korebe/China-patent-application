@@ -1,0 +1,2 @@
+evidence_id,source_id,source_path,location,short_fact,status,claim_or_candidate,confidentiality,verification_needed,owner
+E-001,SRC-001,relative/path/to/file,section/page/figure,replace with a sourced fact,documented,candidate-1,internal,yes,confirm with inventor
