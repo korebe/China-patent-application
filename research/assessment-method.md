@@ -41,7 +41,8 @@ GitHub 页面显示的星数具有时效性，而且页面可能对高星项目�
 - [GitHub 项目页](https://github.com/handsomestWei/patent-disclosure-skill)
 - [README](https://github.com/handsomestWei/patent-disclosure-skill/blob/main/README.md)
 - [安装说明](https://github.com/handsomestWei/patent-disclosure-skill/blob/main/INSTALL.md)
-- 阅读了 README 中的模块目录和安装说明。该安装指南主要说明 Claude Code 与 Cursor；Codex 兼容性因此标作待验证。
+- [2026-11-26 差异](https://github.com/handsomestWei/patent-disclosure-skill/compare/662bcab78df6fe94a04b39a9e4e87cfa91807f47...735711ea989cfd0272bb230bd5c0b591339bb8f1)（`662bcab` → `735711ea`）：新增专利蒸馏子技能，并补充中国专利金奖蒸馏示例。根技能版本改为 5.4.0。
+- 阅读了 README 中的模块目录和安装说明。该安装指南主要说明 Claude Code 与 Cursor；Codex 兼容性因此标作待验证。上述差异没有修改 `INSTALL.md`，也没有改 README 里的安装路径，因此这次复核不改变该标签。
 
 ### Paper2Patent
 
@@ -103,7 +104,7 @@ GitHub 页面显示的星数具有时效性，而且页面可能对高星项目�
 | 技术事实与拟议设计分级 | Evidence-First | 为每个技术事实保留来源位置和状态；缺口明示，不补造 |
 | 论文事实到权利要求依据的映射 | Paper2Patent | 建立逐项依据表，验证从属关系、术语、参数与附图引用 |
 | 独立任务模式和阶段路由 | Patent Skills | 把初评、检索、交底、撰写、修改和导出拆成可单独调用的任务 |
-| 多类型、多子技能工作流 | 中国专利.skill | 按发明、实用新型和外观分模板；逐个验证依赖和输出 |
+| 多类型、多子技能工作流 | 中国专利.skill | 按发明、实用新型和外观分模板；逐个验证依赖和输出。专利蒸馏只借鉴“写法与取舍分开记录、推测不进入可执行策略”，不复制脚本、提示词或金奖名单 |
 | 工程材料到成套交付物 | CN Patent Drafting | 保留需求、文档包、质量清单和版本记录 |
 | 项目分析和布局 | Patent Compose Skill | 参考阶段分解和中间文件，不照搬未经验证的自动检索结论 |
 | 检索、OA、期限等专利工具设计 | Sati | 先验证数据来源、时效、权限和人工审批，再考虑集成 |

@@ -1,12 +1,12 @@
 # 专利相关 Codex Skill 项目目录
 
-调研日期：2026-11-13。GitHub 星数为当日显示的近似快照；项目代码、依赖、许可和安装方式可能随时间变化。这里记录作者公开材料中的功能，不代表我们已对每个项目做安装验收。
+调研日期：2026-11-13。GitHub 星数为当日显示的近似快照；项目代码、依赖、许可和安装方式可能随时间变化。这里记录作者公开材料中的功能，不代表我们已对每个项目做安装验收。2026-11-26 只复核了中国专利.skill 从 `662bcab` 到 `735711ea` 的公开差异，其他项目没有在当日重查。
 
 ## 快速比较
 
 | 项目 | GitHub 星数快照 | Codex 情况 | 更适合的任务 | 主要注意点 |
 |---|---:|---|---|---|
-| [中国专利.skill](https://github.com/handsomestWei/patent-disclosure-skill) | 约 13.4k | 通用 Agent Skills；作者安装说明未明确列 Codex，需试装 | 交底、申请文件、检索、解读、OA 辅助等模块化工作 | 依赖较多；高星不等于适用于 Codex |
+| [中国专利.skill](https://github.com/handsomestWei/patent-disclosure-skill) | 约 13.4k | 通用 Agent Skills；作者安装说明未明确列 Codex，需试装 | 交底、申请文件、检索、解读、OA 辅助；须点名才进入的专利蒸馏 | 依赖较多；蒸馏要本地全文且不代下载；高星不等于适用于 Codex |
 | [Paper2Patent](https://github.com/7toCR/paper2patent) | 733 | 明确支持；作者称主要在 Codex 验证 | 论文转中国发明专利申请草稿、附图和 DOCX/PDF | 重点是“论文转专利”；不能代替查新与代理师判断 |
 | [CN Patent Drafting](https://github.com/HuangXinzhe/cn-patent-drafting) | 8 | 明确支持 Codex | 研发材料到交底书、权利要求、说明书与文档包 | 星数低但 Codex 入口和材料交付路径清楚 |
 | [Patent Skills](https://github.com/yjmm10/patent-skills) | 0 | README 明确支持 Codex | 评估、转写、查新、交底、迭代、DOCX、完整申请草稿 | 查新和 DOCX 有可选依赖；注意规则检索与版本核验 |
@@ -129,24 +129,37 @@
 ## 5. 中国专利.skill
 
 **项目地址：** [handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)  
-**定位：** 本次调研中星数最高的专利相关项目。README 展示多个子 Skill：交底、申请文件、交底到申请编排、专利解读、专利地图、审查意见辅助、著录检索和政策简报。
+**定位：** 本次调研中星数最高的专利相关项目。README 展示多个子 Skill：交底、申请文件、交底到申请编排、专利解读、专利地图、审查意见辅助、著录检索和政策简报。2026-11-26 对照 [`662bcab`…`735711ea`](https://github.com/handsomestWei/patent-disclosure-skill/compare/662bcab78df6fe94a04b39a9e4e87cfa91807f47...735711ea989cfd0272bb230bd5c0b591339bb8f1) 后，根技能版本为 5.4.0，能力自述由 9 项改为 10 项，新增须点名的专利蒸馏。
+
+**2026-11-26 复核：专利蒸馏**
+
+新增子目录是 `skills/patent-distill/`。根技能在用户点名「专利蒸馏」「蒸文风」「蒸思路」，或 `/专利蒸馏`、`/patent-distill` 后才进入；子技能文件写明 `user-invocable: false`。它只处理工作区里已经有的交底、申请文件或公开全文。只有公开号、没有文件时停止，也不替用户下载全文。
+
+- **文风**：同一专利类型的多份申请文件合成一份写法记录。多份共有的章节口气保留；只在一份里出现的特征单独标出，不写成稳定文风。
+- **思路**：按案件把交底要点和最终权利要求对照，记下某一点进入独立权利要求、从属权利要求、只留在说明书，还是没有写入申请。文本里能直接看到的切分进入机读 playbook；动机和未申请原因留在观察稿的推测部分，不能当成可直接套用的策略。
+
+产物在当前工作区的 `outputs/patent-distill/` 下按批次存放：批次说明、有申请文件时的合并文风，以及各案件自己的思路档案。文风样本超过 4 份时，只在交付摘要里提示参考上限，读入阶段仍合并全部输入。分类脚本使用仓库里已有的 PyYAML。上游说明可读 Markdown、纯文本和 docx；PDF 需要本机已有 pypdf。实现里若没有 pypdf，还会尝试 PyPDF2。这次差异没有新增依赖清单。
+
+示例在 [`skills/patent-distill/examples/README.md`](https://github.com/handsomestWei/patent-disclosure-skill/blob/735711ea989cfd0272bb230bd5c0b591339bb8f1/skills/patent-distill/examples/README.md)，不是专利全文。上游示例索引第二十六届中国专利金奖（2026）的 30 项，给出专利号、授权公告号，并引用国家知识产权局 2026-08-28 的授奖决定。按该示例的说明，授权公告号不在决定正文中，而是用名单里的专利号于 2026-11-26 在 Google Patents 检索后记下的中国发明授权文献号；名称和专利权人以其所引国知局名单为准。使用前要自己把全文下载到本地。该示例建议先试名单序号 1、9、13、25 四件授权公告：按案件各写一份思路观察，不把这四份并成文风。本目录不转载该名单。
 
 **Codex 兼容状态**
 
-仓库按 Agent Skills 常见格式组织，根目录有 `SKILL.md`，所以结构上有可移植性；但作者的安装文档明确写的是 Claude Code 和 Cursor，没有明确承诺 Codex。应标为“可移植，待验证”，先在隔离测试项目中检查技能发现、依赖运行和输出。
+仓库按 Agent Skills 常见格式组织，根目录有 `SKILL.md`，所以结构上有可移植性；但作者的安装文档明确写的是 Claude Code 和 Cursor，没有明确承诺 Codex。应标为“可移植，待验证”，先在隔离测试项目中检查技能发现、依赖运行和输出。2026-11-26 的差异没有修改 `INSTALL.md`，README 差异也没有改安装路径，因此这次复核不改变该标签。
 
 **安装与调用**
 
-1. 若试用 Codex，把完整仓库复制到 `.agents/skills/patent-disclosure-skill/`，保留根级 Skill 以及 `skills/` 子目录。
-2. 先检查根级 Skill 如何路由到子 Skill，并按该仓库的 `INSTALL.md` 安装 Python、浏览器和其他依赖。
+1. 若试用 Codex，把完整仓库复制到 `.agents/skills/patent-disclosure-skill/`，保留根级 Skill 以及 `skills/` 子目录。专利蒸馏在 `skills/patent-distill/`，没有单独的安装根目录。
+2. 先检查根级 Skill 如何路由到子 Skill，并按该仓库的 `INSTALL.md` 安装 Python、浏览器和其他依赖。作者文档中的安装位置仍是 Claude Code 的 `.claude/skills/patent-disclosure-skill`，以及 Cursor 的 `~/.cursor/skills/patent-disclosure-skill/` 或项目内 `.cursor/skills/patent-disclosure-skill/`。脚本路径相对技能仓库根；这次比较没有改这条约定。
 3. 试用提示：`请先阅读 patent-disclosure-skill 的入口规则。基于我提供的技术资料，只完成发明交底书的信息盘点和缺口问题清单，告诉我需要哪些依赖和会生成哪些文件，暂不提交或公开任何材料。`
+4. 若试蒸馏，在对话里点名该入口，并给出本地交底、申请文件或已下载全文。不要只给公开号，也不要把推测写成可直接套用的策略。
 
-默认交底流程依赖 Python 3.9+，包含 Playwright / Chrome 或 Edge 等环境；检索、图表、图像和其他子 Skill 可能还需要额外组件。逐个功能验收，不能因为仓库被发现就假定全部子功能可运行。
+默认交底流程依赖 Python 3.9+，包含 Playwright / Chrome 或 Edge 等环境；检索、图表、图像和其他子 Skill 可能还需要额外组件。README 上的 Python 3.9+ 标记在这次差异里没有改。逐个功能验收，不能因为仓库被发现就假定全部子功能可运行。
 
 **优点**
 
 - 星数和模块覆盖度突出，适合作为流程设计和能力覆盖的参考。
 - 覆盖发明、实用新型、外观设计及后续解读、检索和答复辅助。
+- 专利蒸馏把“怎么写”和“这一案怎么取舍”分开，并要求推测留在观察稿里。
 - 有多类输入、多个产物和迭代场景的说明。
 
 **限制**
@@ -154,6 +167,7 @@
 - 高星反映关注度，不代表 Codex 兼容性、法律正确性或输出质量。
 - 模块和依赖很多，初次安装与排障成本高。
 - OA 答复及政策分析需要按官方案卷、法律条文和审查指南逐项核对。
+- 专利蒸馏的金奖材料只是索引，不含全文。观察稿保持草稿，不能写成可直接套用的撰写策略或法律意见。授权公告号是上游检索记录，使用前应自己核对公开文本。
 
 ## 6. Patent Compose Skill
 

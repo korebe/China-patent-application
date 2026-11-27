@@ -2,13 +2,13 @@
 
 本技能根据下列 GitHub 项目公开展示的流程和能力设计。我们借鉴的是工作流思路，没有复制其代码或整段提示词。
 
-星数记录于 2026-11-13，只表示项目在 GitHub 上受到关注，不代表法律准确性或输出质量。
+星数记录于 2026-11-13，只表示项目在 GitHub 上受到关注，不代表法律准确性或输出质量。其中 [patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill) 的能力描述于 2026-11-26 对照提交 [`735711ea`](https://github.com/handsomestWei/patent-disclosure-skill/commit/735711ea989cfd0272bb230bd5c0b591339bb8f1) 复核，星数没有重计。
 
 ## 主要参考
 
 | 项目 | 借鉴的做法 |
 |---|---|
-| [handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)（约 13.4k 星） | 将交底、申请文件、检索、案卷和审查答复拆成不同任务入口。 |
+| [handsomestWei/patent-disclosure-skill](https://github.com/handsomestWei/patent-disclosure-skill)（约 13.4k 星） | 将交底、申请文件、检索、案卷和审查答复拆成不同任务入口。2026-11-26 另增须点名的专利蒸馏：用本地申请文件归纳同一类型的写法，并按案件对照交底和权利要求，把看得见的取舍与推测分开。本仓库只记录这一思路，不收录其脚本、提示词或示例全文。 |
 | [7toCR/paper2patent](https://github.com/7toCR/paper2patent)（约 733 星） | 论文转申请文件时保留来源、生成附图，并检查 Word/PDF 产物。项目说明主要在 Codex 中验证。 |
 | [HuangXinzhe/cn-patent-drafting](https://github.com/HuangXinzhe/cn-patent-drafting)（约 8 星） | 准备申请材料包、请求书信息表、提交清单和权利要求支持检查。 |
 | [soarsky1991/evidence-first-patent-skill](https://github.com/soarsky1991/evidence-first-patent-skill) | 记录每项技术事实的来源，区分实测、记载、推断和设想。 |

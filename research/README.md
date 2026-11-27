@@ -7,7 +7,7 @@
 - 想从论文生成中国发明专利申请草稿：先看 [Paper2Patent](./skills-catalog.md#1-paper2patent)。
 - 想处理研发材料、权利要求和成套申请文档：看 [CN Patent Drafting](./skills-catalog.md#2-cn-patent-drafting)。
 - 想先把证据、事实和推断分清，再决定是否撰写：看 [Evidence-First Patent Skill](./skills-catalog.md#4-evidence-first-patent-skill)。
-- 想了解覆盖面大、星数高的模块化项目：看 [中国专利.skill](./skills-catalog.md#5-中国专利skill)；Codex 兼容性需先在自己的环境验证。
+- 想了解覆盖面大、星数高的模块化项目，或 2026-11-26 新增的专利蒸馏：看 [中国专利.skill](./skills-catalog.md#5-中国专利skill)。蒸馏须点名，且要本地全文；Codex 兼容性仍需先在自己的环境验证。
 - 需要完整桌面专利工作台，而不只是 Codex Skill：看 [Sati](./skills-catalog.md#7-sati)。
 
 然后按 [组合与使用流程](./workflow-and-usage.md) 选一个主 Skill，再将其他项目作为补充审阅参考。
